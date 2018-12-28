@@ -61,6 +61,15 @@ a {
 .sidebar {
     display:flex;
     flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.main {
+    margin-bottom: 20px;
+}
+
+.profile {
+    display:none;
 }
 
 .sidebar a {
@@ -68,7 +77,8 @@ a {
     width: 50%;
     text-decoration: none;
     padding: 0.6em 0;
-    transition: color .3s;
+    transition: .3s;
+    padding-left: 10px;
 }
 
 .sidebar a::before{
@@ -82,6 +92,7 @@ a {
     opacity: 0.67;
     transition: opacity .3s;
     background: url(img/home.svg) center center / contain no-repeat;
+    border: solid 1px transparent;
 }
 
 .sidebar .sidebar-messages::before {
@@ -96,19 +107,114 @@ a {
 .sidebar .sidebar-amis::before {
     background-image: url(img/groupe.svg)
 }
-.sidebar a:hover {
-    text-decoration: underline;
-}
+
 .sidebar a:hover,
-.sidebar a.active{
-    opacity: 1;
+.sidebar a.active {
+    color: #000;
+    border: solid 1px #DBDBDB;
+    background: #FFF;
+    border-radius: 3px;
+    font-weight: bold;
 }
 .sidebar a:hover::before,
 .sidebar a.active::before {
     color: #000;
+    opacity: 1;
 }
 
+.card {
+    border: solid 1px #DBDBDB;
+    background: #FFF;
+    border-radius: 3px;
+    margin-bottom: 15px;
+}
 
+.card:last-child {
+    margin-bottom: 0;
+}
+
+.card-header {
+    padding: 10px;
+    position: relative;
+}
+
+.card-header-avatar {
+    padding-left: 65px;
+}
+
+.card-avatar {
+    position:absolute;
+    top: 50%;
+    left:10px;
+    transform: translateY(-50%);
+    border-radius: 50%;
+}
+
+.card-title {
+    font-weight: bold;
+    color: #000;
+    font-size: 18px;
+    margin-bottom:  5px;
+}
+
+.card-date {
+    color: rgba(0, 0, 0, 0.38);
+    font-size: 12px;
+}
+
+.card-body {
+    padding: 0 10px 20px 10px;
+}
+
+.card-body .fullwidth {
+    width:calc(100% + 20px);
+    display: block;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+.card-body p:first-child {
+    margin-top: 0;
+}
+
+.card-body p:last-child {
+    margin-top: 0;
+}
+
+.card-footer {
+    border-top: solid 1px #DBDBDB;
+    background: #FBFBFB;
+    display:flex;
+    padding: 10px;
+    font-size: 12px;
+    color: #BDBDBD;
+}
+
+.card-footer a {
+    text-decoration: none;
+}
+.card-footer a:hover {
+    text-decoration: underline;
+}
+
+.card-like::before,
+.card-comments::before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+    height:20px;
+    background: url(img/thumb-up.png) center center / 20px 10px no-repeat; 
+    margin-right: 5px;
+}
+
+.card-comments::before {
+    background: url(img/comment.png) center center / 18px 17px no-repeat;
+}
+
+.card-comments{
+    margin-left: auto;
+}
 
 @media only screen and (min-width: 520px) {
     .topbar{
@@ -127,14 +233,93 @@ a {
     }
 }
 
+.sidebar-title {
+    margin-top: 30px;
+    margin-bottom: 18px;
+    color: #000;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.sidebar-title::after {
+    content: '';
+    display:block;
+    height: 1px;
+    width: 100%;
+    background: #000;
+    margin-top:4px;
+
+}
+
+.friend {
+    margin: 14px 0;
+    display: flex;
+
+}
+
+.friend-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.friend-name {
+    display: block;
+    font-weight:bold;
+    color: #000;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.friend-avatar {
+    height: 73px;
+    width: 73px;
+    flex: none;
+    margin-right: 10px;
+}
+
+.friend-connections {
+    color: rgba(0, 0, 0, 0.38);
+    font-size: 12px;
+}
+
+
+.friend-add {
+    display: block;
+    font-size: 12px;
+    color: #000;
+    margin-top: auto;
+    margin-bottom: 3px;
+}
+
+
+.friend-add::before {
+    content: '';
+    display: inline-block;
+    width: 18px;
+    height: 13px;
+    background: center center / 18px 13px no-repeat url(img/user-add.svg);
+    vertical-align: middle;
+    margin-right: 5px;
+    transform: translateY(-1px);
+}
+
 @media only screen and (min-width: 950px) {
+
     .site {
         display: flex;
     }
 
+    .profile {
+        display: block;
+    }
     .sidebar {
+        display: block;
         flex: none;
         width: 180px;
+    }
+
+    .sidebar a {
+        width: 100%;
     }
     .main {
         margin-left: 30px;
